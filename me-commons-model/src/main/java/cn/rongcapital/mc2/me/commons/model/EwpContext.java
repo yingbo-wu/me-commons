@@ -13,6 +13,8 @@ import cn.rongcapital.mc2.me.commons.util.GsonUtils;
  */
 public class EwpContext {
 
+	private String campaignId;
+
 	private String flowId;
 
 	private EwpNode node;
@@ -31,7 +33,7 @@ public class EwpContext {
 	 * @param ndataJson 组件数据
 	 */
 	@SuppressWarnings("unchecked")
-	public EwpContext(int mid, String flowId, String nodeId, String nodeType, String ndataJson) {
+	public EwpContext(int mid, String campaignId, String flowId, String nodeId, String nodeType, String ndataJson) {
 		this.flowId = flowId;
 		this.node = new EwpNode(nodeId, nodeType);
 		this.mdata = new EwpMdata(mid);
@@ -133,6 +135,10 @@ public class EwpContext {
 	 */
 	public Object lookupMdataProperty(String propCode) {
 		return this.mdata.lookupProperty(propCode);
+	}
+
+	public String getCampaignId() {
+		return campaignId;
 	}
 
 	public String getFlowId() {

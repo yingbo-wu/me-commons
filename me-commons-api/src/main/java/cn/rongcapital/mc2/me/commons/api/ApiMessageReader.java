@@ -30,7 +30,7 @@ public class ApiMessageReader implements InitializingBean {
 				return ApiResult.error(Integer.parseInt(messageCode), errorMessage);
 			}
 		}
-		return null;
+		return ApiResult.error(-1, "参数错误消息未指定, 请在api-message.json中指定!");
 	}
 
 	@Override

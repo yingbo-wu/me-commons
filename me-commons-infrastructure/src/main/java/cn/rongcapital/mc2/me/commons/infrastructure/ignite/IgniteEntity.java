@@ -1,5 +1,6 @@
 package cn.rongcapital.mc2.me.commons.infrastructure.ignite;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.apache.ignite.cache.query.annotations.QuerySqlField;
@@ -10,7 +11,8 @@ import com.google.gson.annotations.Expose;
 
 import cn.rongcapital.mc2.me.commons.util.UuidUtils;
 
-public class IgniteEntity {
+@SuppressWarnings("serial")
+public class IgniteEntity implements Serializable {
 
 	public final static String FIELD_STATUS = "status";
 	public final static String FIELD_CREATE_AT = "create_at";
@@ -33,12 +35,15 @@ public class IgniteEntity {
 	protected Date createAt;
 
 	@Expose
+	@QuerySqlField
 	@Field(FIELD_CREATE_BY)
 	protected Long createBy;
 
+	@QuerySqlField
 	@Field(FIELD_UPDATE_AT)
 	protected Date updateAt;
 
+	@QuerySqlField
 	@Field(FIELD_UPDATE_BY)
 	protected Long updateBy;
 
